@@ -9,6 +9,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     public Transform RaycastOrigin;
     public GroundCheckScript GroundCheck;
+    public AudioClip GroundHitAudioClip;
 
     public float Speed = 1f;
     public float JumpForce = 1f;
@@ -53,6 +54,7 @@ public class PlayerMovementScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameManager.instance.GameOver("You fell off the Train");
+            AudioManager.instance.PlayAudio(GroundHitAudioClip);
             Destroy(gameObject);
         }
     }

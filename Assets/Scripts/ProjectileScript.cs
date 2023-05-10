@@ -8,6 +8,8 @@ using UnityEngine;
 public class ProjectileScript : MonoBehaviour
 {
 
+    public AudioClip ProjectileAudioClip;
+
     public int ProjectileID;
     public int ProjectileTrashAmount;
     public float SideForce = 0.1f;
@@ -43,14 +45,15 @@ public class ProjectileScript : MonoBehaviour
             switch (ProjectileID)
             {
                 case 0:
+                    AudioManager.instance.PlayAudio(ProjectileAudioClip);
                     Destroy(other.gameObject);
-                    Destroy(gameObject);
                     GameManager.instance.GameOver("You got hit by Radioactive Waste");
                     break;
                 case 1:
                 case 2:
                 case 3:
                     Trash.TrashAmount += ProjectileTrashAmount;
+                    AudioManager.instance.PlayAudio(ProjectileAudioClip);
                     Destroy(gameObject);
                     break;
             }

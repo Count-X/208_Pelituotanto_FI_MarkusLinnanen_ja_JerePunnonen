@@ -46,4 +46,9 @@ public class MenuController : MonoBehaviour
     {
         MenuState = (State)s;
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

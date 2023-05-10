@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // The function of this Game Manager is to count the Distance Traveled and
 // change when the Train is Moving (Trash Rain) or when the Train is Stopped and you are recycling or
@@ -18,6 +19,8 @@ public class GameManager : MonoBehaviour
     public TMP_Text ReasonText;
     public GameObject GameOverUI;
     public GameObject CountersUI;
+    public AudioClip NormalMusic;
+    public AudioClip GameOverMusic;
 
     TrashScript Trash;
 
@@ -35,6 +38,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        AudioManager.instance.ChangeMusic(NormalMusic);
 
         GameOverUI.SetActive(false);
         CountersUI.SetActive(true);
@@ -78,10 +83,30 @@ public class GameManager : MonoBehaviour
     
     public void GameOver(string str = "You Died")
     {
+        AudioManager.instance.ChangeMusic(GameOverMusic);
+
+        // Wipe all projectiles on game end
+        var ProjectileList = GameObject.FindGameObjectsWithTag("Projectile");
+        foreach (var Projectile in ProjectileList)
+        {
+            Destroy(Projectile);
+        }
+
         GameOverUI.SetActive(true);
         CountersUI.SetActive(false);
         ReasonText.text = str;    
         GameOverKmText.text = "You Traveled " + MetersTraveled + " Meters";
         Time.timeScale = 0f;
+    }
+
+    public void Restart(int i)
+    {
+        SceneManager.LoadScene(i);
+        AudioManager.instance.ChangeMusic(NormalMusic);
+        Time.timeScale = 1f;
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

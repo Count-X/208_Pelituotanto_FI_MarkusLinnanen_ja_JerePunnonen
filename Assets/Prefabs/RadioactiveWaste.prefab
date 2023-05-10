@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2229173225425894744}
   m_Layer: 7
   m_Name: RadioactiveWaste
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,14 +104,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.3}
+  m_Size: {x: 1, y: 1.6}
   m_EdgeRadius: 0
 --- !u!50 &8083460596382884893
 Rigidbody2D:
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc76d0138641c8f458b7ad7cbab47ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ProjectileAudioClip: {fileID: 8300000, guid: e245c030bd4237d459dae0f471701f61, type: 3}
   ProjectileID: 0
   ProjectileTrashAmount: 0
   SideForce: -1
