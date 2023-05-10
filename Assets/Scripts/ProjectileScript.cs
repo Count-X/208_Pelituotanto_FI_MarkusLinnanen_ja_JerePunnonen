@@ -9,29 +9,48 @@ public class ProjectileScript : MonoBehaviour
 
     public int ProjectileID;
     public int ProjectileTrashAmount;
+    public float SideForce = 0.1f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    Rigidbody2D rb;
+    GameObject GM;
+    TrashScript Trash;
+
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        GM = GameObject.Find("GameManager");
+        Trash = GM.GetComponent<TrashScript>();
+    }
+
+    private void Update()
+    {
+        // Make it go left because a the Train moves forward so falling things seem like they go left
+        rb.AddForce(new Vector2(SideForce * rb.mass, 0f));
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
         
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             // Different Projectile Types
             switch (ProjectileID)
             {
                 case 0:
-                    Destroy(collision.gameObject);
+                    Destroy(other.gameObject);
                     Destroy(gameObject);
+                    GM.GetComponent<GameManager>().GameOver("You got hit by Radioactive Waste");
                     break;
                 case 1:
                 case 2:
                 case 3:
-                    collision.gameObject.GetComponent<TrashScript>().TrashAmount += ProjectileTrashAmount;
+                    Trash.TrashAmount += ProjectileTrashAmount;
                     Destroy(gameObject);
                     break;
             }
         }
-        else if (collision.gameObject.CompareTag("Ground"))
+        else if (other.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);
         }

@@ -12,13 +12,14 @@ public class GameManager : MonoBehaviour
     public ObjectSpawnScript ObjectSpawn;
     public TMP_Text KmTextUI;
     public TMP_Text GameOverKmText;
+    public TMP_Text ReasonText;
     public GameObject GameOverUI;
     public GameObject CountersUI;
 
     TrashScript Trash;
 
-    float KiloMetersTraveled;
-    float KmTimer;
+    int MetersTraveled = 0;
+    float DistanceTimer;
     float TrashTimer;
 
     private void Start()
@@ -26,23 +27,24 @@ public class GameManager : MonoBehaviour
         GameOverUI.SetActive(false);
         CountersUI.SetActive(true);
         Trash = GetComponent<TrashScript>();
+        KmTextUI.text = "Km: " + MetersTraveled;
     }
 
     void Update()
     {
         // Had to be seperate for convenience reasons
-        KmTimer += Time.deltaTime;
+        DistanceTimer += Time.deltaTime;
         TrashTimer += Time.deltaTime;
 
         // Timer to count every 1.2 seconds and add .1f to the Kilometers Traveled.
         // These are not a random numbers
         // It is the speed that a bullet train crosses .1km at 300km/h (Average speed of Bullet Train)
 
-        if (KmTimer >= 1.2f)
+        if (DistanceTimer >= .012f)
         {
-            KmTimer -= 1.2f;
-            KiloMetersTraveled += .1f;
-            KmTextUI.text = "Km: " + KiloMetersTraveled;
+            DistanceTimer -= 0.012f;
+            MetersTraveled += 1;
+            KmTextUI.text = "Meters: " + MetersTraveled;
         }
 
         // To Remove 1kg of trash every ~.033 Km
@@ -53,15 +55,21 @@ public class GameManager : MonoBehaviour
             // If you have no Trash left to fuel the train it cannot move
             if (Trash.TrashAmount <= 0)
             {
-                GameOverUI.SetActive(true);
-                CountersUI.SetActive(false);
-                GameOverKmText.text = "You Traveled " + KiloMetersTraveled + " Km";
-                Time.timeScale = 0f;
+                GameOver("You ran out of Trash to fuel to train");
             }
             else
             {
                 Trash.TrashAmount -= 1;
             }
         }
+    }
+    
+    public void GameOver(string str)
+    {
+        GameOverUI.SetActive(true);
+        CountersUI.SetActive(false);
+        ReasonText.text = str;    
+        GameOverKmText.text = "You Traveled " + MetersTraveled + " Meters";
+        Time.timeScale = 0f;
     }
 }

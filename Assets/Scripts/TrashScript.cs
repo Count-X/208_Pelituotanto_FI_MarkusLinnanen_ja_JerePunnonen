@@ -16,6 +16,7 @@ public class TrashScript : MonoBehaviour
     private void Start()
     {
         ogTrashText = TrashTextUI.text;
+        TrashTextUI.text = ogTrashText + TrashAmount;
     }
 
     private void Update()

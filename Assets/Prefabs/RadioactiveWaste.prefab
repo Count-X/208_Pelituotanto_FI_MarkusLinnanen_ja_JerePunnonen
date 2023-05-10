@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8083460596382884892}
   - component: {fileID: 8083460596382884893}
   - component: {fileID: 2229173225425894744}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RadioactiveWaste
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ProjectileID: 0
   ProjectileTrashAmount: 0
+  SideForce: -1
