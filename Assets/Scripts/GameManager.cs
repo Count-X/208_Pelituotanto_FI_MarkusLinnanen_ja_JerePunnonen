@@ -9,6 +9,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
+
     public ObjectSpawnScript ObjectSpawn;
     public TMP_Text KmTextUI;
     public TMP_Text GameOverKmText;
@@ -24,6 +27,15 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
         GameOverUI.SetActive(false);
         CountersUI.SetActive(true);
         Trash = GetComponent<TrashScript>();
@@ -64,7 +76,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public void GameOver(string str)
+    public void GameOver(string str = "You Died")
     {
         GameOverUI.SetActive(true);
         CountersUI.SetActive(false);

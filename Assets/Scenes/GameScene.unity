@@ -200,6 +200,90 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.5, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &236775378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 236775379}
+  - component: {fileID: 236775380}
+  m_Layer: 3
+  m_Name: Visuals
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &236775379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236775378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5479126, y: -2.16, z: 0}
+  m_LocalScale: {x: 19.999998, y: 20, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1817889091}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &236775380
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 236775378}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 3056aca0aa3891d438c3a2f1ed54ac14, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 2
+  m_Size: {x: 9.045208, y: 0.2658738}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &245166471
 GameObject:
   m_ObjectHideFlags: 0
@@ -515,7 +599,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.7708051, b: 0.9528302, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.7708051, b: 0.9528302, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -723,7 +807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 75}
+  m_AnchoredPosition: {x: 0, y: 32.5}
   m_SizeDelta: {x: 1700, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &750216642
@@ -1195,7 +1279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1382109951
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1231,8 +1315,8 @@ GameObject:
   - component: {fileID: 1386622358}
   - component: {fileID: 1386622359}
   m_Layer: 3
-  m_Name: Platform
-  m_TagString: Ground
+  m_Name: Train
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1498,10 +1582,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1592285335}
   - component: {fileID: 1592285337}
-  - component: {fileID: 1592285336}
+  - component: {fileID: 1592285338}
   m_Layer: 3
   m_Name: TrainBack
-  m_TagString: Ground
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1521,39 +1605,6 @@ Transform:
   m_Father: {fileID: 1386622358}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &1592285336
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592285334}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: 0.29596418, y: 0.23065074}
-  - {x: 0.3098142, y: 0.22943778}
-  - {x: 0.55805635, y: 0.0910283}
-  - {x: 0.7191956, y: -0.003921628}
-  - {x: 0.7672522, y: -0.033157706}
-  - {x: 0.7905643, y: -0.058597386}
-  - {x: 0.80154467, y: -0.082416296}
-  - {x: 0.8030894, y: -0.097091526}
-  - {x: 0.8046346, y: -0.1109944}
-  - {x: 0.7992275, y: -0.12875924}
-  - {x: 0.79768276, y: -0.14439523}
-  - {x: 0.78223515, y: -0.15752572}
-  - {x: 0.74063045, y: -0.18800408}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &1592285337
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1606,6 +1657,38 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &1592285338
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1592285334}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.1
+  m_Points:
+  - {x: -0.7404588, y: -0.19083595}
+  - {x: -0.7709925, y: -0.17098902}
+  - {x: -0.79389286, y: -0.1389286}
+  - {x: -0.80073667, y: -0.097737804}
+  - {x: -0.7976613, y: -0.07326214}
+  - {x: -0.7954197, y: -0.059540823}
+  - {x: -0.7832062, y: -0.044273958}
+  - {x: -0.7568121, y: -0.025504693}
+  - {x: -0.5732331, y: 0.084463924}
+  - {x: -0.40840435, y: 0.18741678}
+  - {x: -0.33858442, y: 0.22178608}
+  - {x: -0.2992149, y: 0.22747642}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1804003800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,7 +1701,7 @@ GameObject:
   - component: {fileID: 1804003802}
   m_Layer: 3
   m_Name: TrainCarriages
-  m_TagString: Untagged
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1736,9 +1819,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1817889091}
-  m_Layer: 0
+  - component: {fileID: 1817889092}
+  m_Layer: 3
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1751,13 +1835,40 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817889090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -7.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 236775379}
   m_Father: {fileID: 1807486225}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1817889092
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817889090}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 200, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1927538909
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,11 +1970,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34579d629df1f004cb617597ca42321a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 8
-  JumpForce: 400
-  GroundCheckDistance: 0.01
   RaycastOrigin: {fileID: 1537153380}
   GroundCheck: {fileID: 1537153382}
+  Speed: 8
+  JumpForce: 400
 --- !u!50 &1927538914
 Rigidbody2D:
   serializedVersion: 4
@@ -1965,7 +2075,7 @@ MonoBehaviour:
   ObjectSpawn: {fileID: 1118341860}
   KmTextUI: {fileID: 818285402}
   GameOverKmText: {fileID: 2063368403}
-  ReasonText: {fileID: 0}
+  ReasonText: {fileID: 750216642}
   GameOverUI: {fileID: 1382109950}
   CountersUI: {fileID: 321393165}
 --- !u!4 &2060242861
@@ -2247,7 +2357,7 @@ GameObject:
   - component: {fileID: 2133348086}
   m_Layer: 3
   m_Name: TrainFront
-  m_TagString: Ground
+  m_TagString: Train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2281,7 +2391,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.1
   m_Points:
   - {x: 0.29596418, y: 0.23065074}
   - {x: 0.3098142, y: 0.22943778}

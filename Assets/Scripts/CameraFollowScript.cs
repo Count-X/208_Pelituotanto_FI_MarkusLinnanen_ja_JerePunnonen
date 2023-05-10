@@ -9,10 +9,15 @@ public class CameraFollowScript : MonoBehaviour
 {
 
     public Transform Player;
+
     public float CameraY;
 
     private void Update()
     {
-        transform.position = new Vector3 (Player.position.x, Player.position.y, CameraY);
+        if (Player != null)
+        {
+            transform.position = new Vector3(Player.position.x, Player.position.y, CameraY);
+        }
+        else Destroy(this);
     }
 }

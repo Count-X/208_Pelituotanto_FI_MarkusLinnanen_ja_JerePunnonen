@@ -7,13 +7,11 @@ using UnityEngine;
 public class PlayerMovementScript : MonoBehaviour
 {
 
-    public float Speed = 1f;
-    public float JumpForce = 1f;
-    public float GroundCheckDistance = .1f;
-
     public Transform RaycastOrigin;
     public GroundCheckScript GroundCheck;
 
+    public float Speed = 1f;
+    public float JumpForce = 1f;
 
     // private default types here
 
@@ -29,9 +27,14 @@ public class PlayerMovementScript : MonoBehaviour
 
     void Update()
     {
+        // Turning the player, in too many lines
+        bool left = Input.GetAxis("Horizontal") <= 0f;
+        var rotationVector = transform.rotation.eulerAngles;
+        rotationVector.y = Input.GetAxis("Horizontal") == 0f ? rotationVector.y : (left ? 180f : 0f);
+        transform.rotation = Quaternion.Euler(rotationVector);
+
         // Movement to left and right
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0f, 0f)  * Speed * Time.deltaTime);
-        transform.Rotate(new Vector3( 0f, Input.GetAxis("Horizontal") == 0f ? transform.rotation.y : ((Input.GetAxis("Horizontal") <= 0f) ? 180f : 0f), 0f));
+        transform.Translate(new Vector3((left ? -Input.GetAxis("Horizontal") : Input.GetAxis("Horizontal")), 0f, 0f) * Speed * Time.deltaTime);
 
         anim.SetBool("Walking", Input.GetAxis("Horizontal") != 0f);
 
@@ -43,5 +46,14 @@ public class PlayerMovementScript : MonoBehaviour
 
 
         anim.SetBool("Jumping", !GroundCheck.OnGround);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            GameManager.instance.GameOver("You fell off the Train");
+            Destroy(gameObject);
+        }
     }
 }
